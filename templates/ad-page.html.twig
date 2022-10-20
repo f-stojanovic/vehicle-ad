@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+
+        <div class="container gallery-container">
+
+            <h1>{{ ad['yearOfProduction'] }}  | {{ ad['car']['make'] }} {{ ad['car']['specification'] }}</h1>
+
+            <p class="page-description text-center">{{ ad['titleShort']['nl_NL'] }}</p>
+
+            <div class="tz-gallery">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{{ ad['standardImages'][0]['url'] }}">
+                            <img src="{{ ad['standardImages'][0]['url'] }}" alt="Park">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{{ ad['standardImages'][1]['url'] }}">
+                            <img src="{{ ad['standardImages'][1]['url'] }}" alt="Bridge">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{{ ad['standardImages'][2]['url'] }}">
+                            <img src="{{ ad['standardImages'][2]['url'] }}" alt="Tunnel">
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> Vehicle data </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
+                            <i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="">
+                    <table id="details-table" class="table table-condensed">
+                        <tbody>
+                        <tr class="text-centar">
+                            <th class="text-center">Make</th>
+                            <th class="text-center">Model</th>
+                            <th class="text-center">Model Name</th>
+                            <th class="text-center">Series</th>
+                            <th class="text-center">Year of manufacture:</th>
+                        </tr>
+                            <tr>
+                                <td class="text-center"> {{ ad['car']['make'] }} </td>
+                                <td class="text-center"> {{ ad['car']['model'] }} </td>
+                                <td class="text-center"> {{ ad['car']['specification'] }}</td>
+                                <td class="text-center"> {{ ad['manufacturerCode'] }}</td>
+                                <td class="text-center"> {{ ad['yearOfProduction'] }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> Technical details </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                            <i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
+                            <i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="">
+                    <table id="details-table" class="table table-condensed">
+                        <tbody>
+                        <tr class="text-centar">
+                            <th class="text-center">Body style</th>
+                            <th class="text-center">Body detail</th>
+                            <th class="text-center">Power (kw/hp)</th>
+                            <th class="text-center">Cubic capacity (ccm)</th>
+                            <th class="text-center">Cylinders</th>
+                            <th class="text-center">Doors</th>
+                            <th class="text-center">Steering</th>
+                            <th class="text-center">Transmission</th>
+                            <th class="text-center">Gears</th>
+                            <th class="text-center">Fuel</th>
+                        </tr>
+                        <tr>
+                            <td class="text-center"> {{ ad['car']['body'] }} </td>
+                            <td class="text-center"> {{ ad['car']['bodyDetailed'] }} </td>
+                            <td class="text-center"> {{ ad['horsepower'] }}</td>
+                            <td class="text-center"> {{ ad['cubicCapacity'] }}</td>
+                            <td class="text-center"> {{ ad['cylinder'] }} </td>
+                            <td class="text-center"> {{ ad['doors'] }} </td>
+                            <td class="text-center"> {{ ad['steering'] }} </td>
+                            <td class="text-center"> {{ ad['gearbox'] }} </td>
+                            <td class="text-center"> {{ ad['gears'] }} </td>
+                            <td class="text-center"> {{ ad['fuel'] }} </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="margin-top: 20px;">
+
+            <div class="box box-widget widget-user-2">
+
+                <div class="widget-user-header bg-black">
+                    <div class="widget-user-image">
+                        <img class="img-circle" src="https://cdn.classic-trader.com/I/images/300_110_alpha_inset/trader_homepage_asset_05c8e620bb2a9987483644fb8093e467" alt="User Avatar">
+                    </div>
+
+                    <h3 class="widget-user-username">{{ ad['contact']['firstName'] }} {{ ad['contact']['lastName'] }}</h3>
+                    <h5 class="widget-user-desc">{{ ad['contact']['companyName'] }}</h5>
+                </div>
+                <div class="box-footer no-padding">
+                    <ul class="nav nav-stacked">
+                        <li><a href="#">Phone <span class="pull-right badge bg-blue">{{ ad['contact']['phone'] }}</span></a></li>
+                        <li><a href="#">Email <span class="pull-right badge bg-aqua">{{ ad['contact']['email'] }}</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
