@@ -1,0 +1,7 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+ads_page:
+    path: /
+    controller: App\Controller\AdsPageController::renderAdAction
